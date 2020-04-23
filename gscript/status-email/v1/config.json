@@ -1,0 +1,29 @@
+{
+  "run": true,
+  "mailDocId": "<doc1>",
+  "reportPrefix": "MyTeamStatusReport",
+  "holidays": [
+    "01-15",
+    "03-25",
+    "05-01",
+    "05-25",
+    "06-02",
+    "10-02",
+    "10-26",
+    "11-16",
+    "12-25"
+  ],
+  "htmlBody": "<html Body>",
+  "mail": {
+    "subjectPrefix": "Status Report",
+    "htmlBody": "<html body>",
+    "to": [
+      "<email1>",
+      "<email2>"
+    ],
+    "cc": [
+      "<email3>",
+      "<email4>"
+    ]
+  }
+}
