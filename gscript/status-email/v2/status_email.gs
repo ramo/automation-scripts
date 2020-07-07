@@ -45,3 +45,23 @@ function sendStatusEmail() {
   sendEmail(config, pre_process, post_process);
 }
 
+function resetStatusSheet(statusSheetId, sprintId) {
+  var statusSheet = SpreadsheetApp.openById(statusSheetId);
+  statusSheet.rename('DailyStatusSheet - ' + sprintId);
+  statusSheet.insertSheet('Empty', 1);
+  statusSheet.getSheets().forEach(sheet => {
+    if (statusSheet.getActiveSheet().getName() !== sheet.getName()) {
+      statusSheet.deleteSheet(sheet);
+    }
+  });
+}
+
+function startSprint(){
+  var configId = '<configId>';  // Caution: This need to be set before running the script.
+  var config = getStatusConfig(configId);
+  copyToDirectory(config.statusSheetId, config.backupFolderId);
+  resetStatusSheet(config.statusSheetId, config.sprintId);
+}
+
+
+
