@@ -203,3 +203,9 @@ function getStatusConfig(configId) {
   return config;
 }
 
+function copyToDirectory(fileId, folderId){
+  var file = DriveApp.getFileById(fileId);
+  var folder = DriveApp.getFolderById(folderId);
+  file.makeCopy(folder);
+}
+
